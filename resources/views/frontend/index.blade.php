@@ -3,7 +3,7 @@
 	<section class="banner-travel">
 		<div class="container pr">
 			<div class="banner-content">
-				<h2 class="banner-title">Let Learning Begin</h2>
+				<h2 class="banner-title">Student Resources</h2>
 				<h4 class="sub-title">Powering education</h4>
 
 				<div class="travel-banner-image text-center">
