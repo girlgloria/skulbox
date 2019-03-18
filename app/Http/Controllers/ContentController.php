@@ -36,6 +36,12 @@ class ContentController extends Controller
             ->withItems($this->controllerRepo->getModel($this->model)->all());
     }
 
+    public function creatorResourcesIndex()
+    {
+        return view('creator.content.index')
+            ->withItems($this->controllerRepo->getModel($this->model)->findBy('user_id', \auth()->user()->id));
+    }
+
     public function create()
     {
         return view('creator.content.create')
@@ -50,11 +56,11 @@ class ContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title',
-            'content_type',
-            'file',
-            'type',
-            'description',
+            'title' => 'required',
+            'content_type' => 'required',
+            'file' => 'required',
+            'type' => 'required',
+            'description' => 'required',
         ]);
 
         $resource = $this->controllerRepo->getModel($this->model)->create($this->prepareData($request));
@@ -281,6 +287,15 @@ class ContentController extends Controller
         return view('frontend.confirm-order')
             ->withData($request->all());
 
+    }
+
+    public function delete($resource_id)
+    {
+        $this->controllerRepo->getModel($this->model)->delete($resource_id);
+
+        notify()->success("Resource deleted successfully");
+
+        return back();
     }
 
     public function orderPayment(Request $request)

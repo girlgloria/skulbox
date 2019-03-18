@@ -3,25 +3,32 @@
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<i class="fa fa-user fa-3x"></i>
+							<img src="{{ asset('img/user.png') }}" alt="user" class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									User
-									{{--<span class="user-level">Administrator</span>--}}
+									{{ ucwords(auth()->user()->name) }}
+									<span class="user-level">{{ ucwords(auth()->user()->user_type) }}</span>
 								</span>
 							</a>
 							<div class="clearfix"></div>
 						</div>
 					</div>
 					<ul class="nav nav-primary">
-						<li class="nav-item active">
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+						<li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">Menu</h4>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="{{ url('/admin') }}" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
 						</li>
+						@if(auth()->user()->user_type ==  config('studentbox.user_type.admin'))
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-cubes"></i>
@@ -32,7 +39,7 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="{{ route('category.create') }}">
-											<span class="sub-item">Add New</span>
+											<span class="sub-item">Add New Category</span>
 										</a>
 									</li>
 									<li>
@@ -43,27 +50,53 @@
 								</ul>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a data-toggle="collapse" href="#res">
-								<i class="fa fa-toolbox"></i>
-								<p>Resources</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="res">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="{{ route('resource.create') }}">
-											<span class="sub-item">Upload New</span>
-										</a>
-									</li>
-									<li>
-										<a href="{{ route('resource.index') }}">
-											<span class="sub-item">Resources</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
+						@endif
+						@if(auth()->user()->user_type == config('studentbox.user_type.admin'))
+							<li class="nav-item">
+								<a data-toggle="collapse" href="#res">
+									<i class="fa fa-toolbox"></i>
+									<p>Resources</p>
+									<span class="caret"></span>
+								</a>
+								<div class="collapse" id="res">
+									<ul class="nav nav-collapse">
+										{{--<li>--}}
+											{{--<a href="{{ route('resource.create') }}">--}}
+												{{--<span class="sub-item">Upload New</span>--}}
+											{{--</a>--}}
+										{{--</li>--}}
+										<li>
+											<a href="{{ route('admin.resource.index') }}">
+												<span class="sub-item">Resources</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						@endif
+						@if(auth()->user()->user_type == config('studentbox.user_type.agent'))
+							<li class="nav-item">
+								<a data-toggle="collapse" href="#res">
+									<i class="fa fa-toolbox"></i>
+									<p>Resources</p>
+									<span class="caret"></span>
+								</a>
+								<div class="collapse" id="res">
+									<ul class="nav nav-collapse">
+										<li>
+											<a href="{{ route('resource.create') }}">
+												<span class="sub-item">Upload New</span>
+											</a>
+										</li>
+										<li>
+											<a href="{{ route('resource.index') }}">
+												<span class="sub-item">Resources</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						@endif
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#requests">
 								<i class="fa fa-envelope"></i>

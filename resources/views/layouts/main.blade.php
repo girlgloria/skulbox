@@ -26,7 +26,7 @@
 
 <body id="home-version-1" class="home-version-1" data-style="default">
 
-<a href="{{ url('/') }}#main_content" data-type="section-switch" class="return-to-top">
+<a href="{{ \Illuminate\Support\Facades\Request::path() }}#main_content" data-type="section-switch" class="return-to-top">
     <i class="fa fa-chevron-up"></i>
 </a>
 
@@ -39,7 +39,7 @@
 {{--</div>--}}
 {{--</div>--}}
 <div id="main_content">
-    <header class="site-header gp-header-sticky">
+    <header class="site-header gp-header-sticky" id="top">
         <div class="container">
             <div class="heder-inner">
                 <div class="site-logo">
@@ -61,11 +61,13 @@
                         <li><a href="{{ route('explore.index') }}">Resources</a></li>
                         <li><a href="{{ route('explore.creators') }}">Creators</a></li>
                         @guest
-                            <li><a href="">About</a></li>
-                        <li><a href="{{ route('creator.register') }}" class="btn btn-success" style="color: white;">Become A Creator</a></li>
-                            @else
-                            <li><a href="{{ route('order.content') }}" class="btn btn-primary" style="color: white;">Order Content</a></li>
-                            <li><a href="{{ route('upload.content') }}" class="btn btn-success" style="color: white;">Upload Content</a></li>
+                            <li><a href="{{ url('/') }}#about">About</a></li>
+                            <li><a href="{{ route('creator.register') }}" class="btn btn-success" style="color: white;">Become A Creator</a></li>
+                        @else
+                            @if(auth()->user()->user_type == config('studentbox.user_type.normal'))
+                                <li><a href="{{ route('order.content') }}" class="btn btn-primary" style="color: white;">Order Content</a></li>
+                                <li><a href="{{ route('upload.content') }}" class="btn btn-success" style="color: white;">Upload Content</a></li>
+                            @endif
                         @endguest
                         @guest
                             <li><a href="{{ route('login') }}" class="btn btn-outline-primary" style="margin-right: 2px; margin-left: 2px;">Login</a>
@@ -78,25 +80,27 @@
                                 <a id="navbarDropdown" class="" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fa fa-user"></i> {{ ucwords(mb_strimwidth(Auth::user()->name, 0,8,"..")) }} <i class="fa fa-caret-down"></i>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right background-color-pri" aria-labelledby="navbarDropdown">
-                                    @if(count(\Illuminate\Support\Facades\Auth::user()->groups) > 0)
-                                        <a href="{{ route('group.my') }}" class="dropdown-item">My Groups</a>
+                                    @if(auth()->user()->user_type == config('studentbox.user_type.admin') || auth()->user()->user_type == config('studentbox.user_type.agent'))
+                                        <a href="{{ url('/') }}" class="dropdown-item">Dashboard</a>
                                     @else
-                                        <a href="{{ route('group.create') }}" class="dropdown-item">Create Group</a>
-                                    @endif
-                                    <a href="{{ route('orders.my') }}" class="dropdown-item">My Orders</a>
-                                    <a href="{{ route('resources.my') }}" class="dropdown-item">My Resources</a>
-                                    {{--<a href="{{ route('orders.my') }}" class="dropdown-item">My Statement</a>--}}
-                                    <a class="dropdown-item white-color" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        @if(count(\Illuminate\Support\Facades\Auth::user()->groups) > 0)
+                                            <a href="{{ route('group.my') }}" class="dropdown-item">My Groups</a>
+                                        @else
+                                            <a href="{{ route('group.create') }}" class="dropdown-item">Create Group</a>
+                                        @endif
+                                        <a href="{{ route('orders.my') }}" class="dropdown-item">My Orders</a>
+                                        <a href="{{ route('resources.my') }}" class="dropdown-item">My Resources</a>
+                                        {{--<a href="{{ route('orders.my') }}" class="dropdown-item">My Statement</a>--}}
+                                        <a class="dropdown-item white-color" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endif
                                 </div>
                             </li>
                         @endguest

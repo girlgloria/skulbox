@@ -2,11 +2,12 @@
 
 namespace App;
 
+use App\Repository\Contracts\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Category extends BaseModel
 {
-    protected $fillable = ['name','description','is_active',''];
+    protected $fillable = ['name','description','is_active','is_deleted'];
 
     public function contents()
     {

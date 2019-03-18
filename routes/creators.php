@@ -21,7 +21,7 @@ Route::group(['middleware' => ['creator','user-category']], function (){
                 ->name('creator.requests.bid');
         });
         Route::group(['prefix' => 'resources'], function (){
-            Route::get('/', [\App\Http\Controllers\ContentController::class,'index'])->name('resource.index');
+            Route::get('/', [\App\Http\Controllers\ContentController::class,'creatorResourcesIndex'])->name('resource.index');
             Route::get('create', [\App\Http\Controllers\ContentController::class,'create'])->name('resource.create');
             Route::post('upload', [\App\Http\Controllers\ContentController::class,'upload'])->name('resources.upload');
             Route::post('store', [\App\Http\Controllers\ContentController::class,'store'])->name('resource.store');

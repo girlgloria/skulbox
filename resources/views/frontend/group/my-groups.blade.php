@@ -5,7 +5,7 @@
             <div class="section-title" style="margin-top: 35px;">
                 <h2 class="title">My Groups</h2>
                 <div class="col-md-12 text-center">
-                    <a href="{{ route('group.create') }}" class="btn btn-success">Create Group</a>
+                    {{--<a href="{{ route('group.create') }}" class="btn btn-success">Create Group</a>--}}
                 </div>
             </div>
             <div class="row">

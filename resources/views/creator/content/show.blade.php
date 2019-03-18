@@ -26,7 +26,7 @@
                                                     <div class="selectgroup selectgroup-pills">
                                                         @foreach($item->categories as $cat)
                                                             <label class="selectgroup-item">
-                                                                <input type="checkbox" name="categories[]" value="{{ $cat->id }}" class="selectgroup-input">
+                                                                <input checked type="checkbox" name="categories[]" value="{{ $cat->id }}" class="selectgroup-input">
                                                                 <span class="selectgroup-button">{{ ucwords($cat->name) }}</span>
                                                             </label>
                                                         @endforeach
@@ -38,7 +38,7 @@
                                             <div class="col-md-4">
                                                 <h2><b>Content Type</b>: {{ ucwords($item->content_type) }}</h2>
                                                 <h2><b>Price</b>: {{ number_format($item->cost,2) }}</h2>
-                                                <h2><b>Link</b>: <a href="{{ storage_path().'/app/'.$item->content_path }}">Resource Link</a></h2>
+                                                <h2><b>Link</b>: <a class="btn btn-xs btn-primary" href="{{ storage_path().'/app/'.$item->content_path }}">Download</a></h2>
                                                 <h2><b>Created On</b>: {{ \Carbon\Carbon::parse($item->created_at)->format('d-M-y') }}</h2>
                                                 <h2><b>Updated On</b>: {{ \Carbon\Carbon::parse($item->updated_at)->format('d-M-y') }}</h2>
                                                 <hr>

@@ -2,9 +2,10 @@
 
 namespace App;
 
+use App\Repository\Contracts\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
-class Content extends Model
+class Content extends BaseModel
 {
     protected $fillable = [
         'user_id',

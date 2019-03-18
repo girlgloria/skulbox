@@ -11,7 +11,7 @@
                         @csrf
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}
+                                <label for="email" class="col-form-label ">{{ __('E-Mail Address') }}
                                     <span style="color: red">{{ $errors->has('email') ? 'Error:'.$errors->first('email') : '' }}</span>
                                 </label>
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label for="password" class="col-form-label text-md-right">{{ __('Password') }}
+                                <label for="password" class="col-form-label">{{ __('Password') }}
                                     <span style="color: red">{{ $errors->has('password') ? 'Error:'.$errors->first('password') : '' }}</span>
                                 </label>
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -53,7 +53,7 @@
                     {{--<li><a href="login-register.html#"><i class="fa fa-google-plus"></i></a></li>--}}
                     {{--</ul>--}}
 
-                    <p>Don’t have an account? <a href="login-register.html#">Sign up Here.</a></p>
+                    <p>Don’t have an account? <a href="{{ url('/register') }}">Sign up Here.</a></p>
 
                 </div>
             </div>

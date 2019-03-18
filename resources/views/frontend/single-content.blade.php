@@ -3,7 +3,7 @@
     <section class="product-details section-padding" style="margin-top: 16px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="">
                         <div class="slide-image" style="padding: 12px">
                             @if($content->background_path != null)
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="product-details-content">
                         <h2 class="prod-name">{{ ucwords($content->title) }}</h2>
                         <span class="price">
@@ -47,7 +47,7 @@
                             <div class="col-md-6">
                                 @if(($content->cost != null && $content->cost > 0) && !$canDownload)
                                     <button id="btn-payment" onclick="payment()" class="btn btn-outline-primary btn-block">Buy</button>
-                                    <hr>
+                                
                                     <div class="col-md-12" id="payment" hidden>
                                         <form action="{{ route('content.purchase', $content->id) }}" method="post">
                                             @csrf

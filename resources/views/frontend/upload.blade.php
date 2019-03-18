@@ -4,7 +4,7 @@
         <div class="container">
             <div class="login-register-wrapper">
                 <div class="section-title">
-                    <h2 class="title">Upload Personal Resource</h2>
+                    <h2 class="title">Personal Resource</h2>
                 </div>
                 <div class="login-form-inner">
                     <form action="{{ route('upload.content.store') }}" method="POST" enctype="multipart/form-data" class="login-form">

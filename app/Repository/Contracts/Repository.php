@@ -36,7 +36,7 @@ abstract class Repository implements BaseRepository
 
     public function all($columns = ['*'])
     {
-        return $this->model->where('is_deleted', false)->get();
+        return $this->model->active()->get();
     }
 
     public function paginate($perPage, $columns = ['*'])
@@ -51,7 +51,7 @@ abstract class Repository implements BaseRepository
 
     public function findBy($field, $value, $condition = '=', $columns = ['*'])
     {
-        return $this->model->where($field, $condition, $value)->get($columns);
+        return $this->model->active()->where($field, $condition, $value)->get($columns);
     }
 
     public function logActivity($activity_type, $user_id, $activity, $request_id = null)

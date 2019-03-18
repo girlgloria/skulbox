@@ -3,7 +3,7 @@
 	<section class="banner-travel">
 		<div class="container pr">
 			<div class="banner-content">
-				<h2 class="banner-title">Student Resources</h2>
+				<h2 class="banner-title">Let Learning Begin</h2>
 				<h4 class="sub-title">Powering education</h4>
 
 				<div class="travel-banner-image text-center">
@@ -77,7 +77,7 @@
 			<div class="row no-gutters">
 				<div class="col-md-5">
 					<div class="about-soft-content wow fadeInUp">
-						<h2 class="title">About SkulBox</h2>
+						<h2 class="title" id="about">About SkulBox</h2>
 						<p>
 							A platform to share learning resources by making requests, paying for them and downloading.
 						</p>

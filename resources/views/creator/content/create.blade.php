@@ -17,6 +17,9 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="card-body">
+                                        <div class="col-md-12">
+                                            @include('partial.errors')
+                                        </div>
                                         <form action="{{ route('resource.store') }}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">

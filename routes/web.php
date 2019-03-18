@@ -15,7 +15,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('i
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/resources', 'ContentController@explore')->name('explore.index');
+    Route::get('/resources', [\App\Http\Controllers\ContentController::class,'explore'])->name('explore.index');
     Route::get('my/resources', 'ContentController@myResources')->name('resources.my');
     Route::get('/search/resources', 'ContentController@search')->name('resources.search');
     Route::get('/creators', 'ContentController@creators')->name('explore.creators');

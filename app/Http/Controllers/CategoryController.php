@@ -50,6 +50,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:categories,name',
+            'description' => 'required',
+        ],
+            [
+                'name.unique' => 'The category already exist',
+                'name.required' => 'The category field is required'
+            ]
+        );
+
         $this->controllerRepo->getModel($this->model)->create($request->all());
 
         notify()->success("Added successfully");

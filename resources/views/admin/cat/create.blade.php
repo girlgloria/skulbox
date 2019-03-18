@@ -13,23 +13,32 @@
                         <div class="col-md-8 offset-2">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Add</h4>
+                                    <h4 class="card-title">Add Category</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-body">
+                                        {{--<div class="col-md-12">--}}
+                                            {{--@include('partial.errors')--}}
+                                        {{--</div>--}}
                                         <form action="{{ route('category.store') }}" method="post">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6 col-lg-6">
-                                                    <div class="form-group">
+                                                    <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
                                                         <label for="name">Category</label>
-                                                        <input type="text" class="form-control" name="name" id="name" placeholder="Category">
+                                                        <input type="text" class="form-control" value="{{ old('name') }}" name="name" id="name" placeholder="Category">
+                                                        @if($errors->has('name'))
+                                                            <span class="form-text text-muted">{{ $errors->first('name') }}</span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-6">
-                                                    <div class="form-group">
+                                                    <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
                                                         <label for="description">Description</label>
-                                                        <input type="text" name="description" class="form-control" id="description" placeholder="Description">
+                                                        <input type="text" name="description" value="{{ old('description') }}" class="form-control" id="description" placeholder="Description">
+                                                        @if($errors->has('name'))
+                                                            <span class="form-text text-muted">{{ $errors->first('description') }}</span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
