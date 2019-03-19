@@ -237,7 +237,7 @@ class ContentController extends Controller
         }
 
         foreach ($contents->get() as $cat){
-            if ($cat->content_type == 'public' && !in_array($result, $cat))
+            if ($cat->content_type == 'public' && !in_array($cat, $result))
                 array_push($result, $cat);
         }
 
