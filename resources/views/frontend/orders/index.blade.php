@@ -7,14 +7,13 @@
                 <div class="col-md-12 text-center">
                     <div class="text-center">
                         {{--<div class="btn-group" role="group" aria-label="" >--}}
-                            <a style="margin-top: 4px" href="{{ route('order.content') }}" class="btn btn-success">
-                                <b style="color: white">New Order</b></a>
+                        
                             <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'accepted']) }}"  class="btn btn-primary"><b style="color: white">Active</b></a>
-                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'bid']) }}"  class="btn btn-success"><b style="color: white">Bids</b></a>
-                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'paid']) }}"  class="btn btn-warning"><b style="color: white">Pending</b></a>
+                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'bid']) }}"  class="btn btn-primary"><b style="color: white">Bids</b></a>
+                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'paid']) }}"  class="btn btn-primary"><b style="color: white">Pending</b></a>
                             <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'pending-payment']) }}"  class="btn btn-danger"><b style="color: white">Pending Payment</b></a>
-                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'completed']) }}"  class="btn btn-success"><b style="color: white">Completed</b></a>
-                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'cancelled']) }}"  class="btn btn-primary"><b style="color: white">Cancelled</b></a>
+                            <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'completed']) }}"  class="btn btn-primary"><b style="color: white">Completed</b></a>
+                            <!-- <a style="margin-top: 4px" href="{{ route('orders.my',['status' => 'cancelled']) }}"  class="btn btn-primary"><b style="color: white">Cancelled</b></a> -->
                         {{--</div>--}}
                     </div>
                 </div>

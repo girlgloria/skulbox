@@ -81,8 +81,11 @@
                                     <i class="fa fa-user"></i> {{ ucwords(mb_strimwidth(Auth::user()->name, 0,8,"..")) }} <i class="fa fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right background-color-pri" aria-labelledby="navbarDropdown">
-                                    @if(auth()->user()->user_type == config('studentbox.user_type.admin') || auth()->user()->user_type == config('studentbox.user_type.agent'))
+                                    @if(auth()->user()->user_type == config('studentbox.user_type.agent'))
                                         <a href="{{ url('/') }}" class="dropdown-item">Dashboard</a>
+
+                                    @elseif(auth()->user()->user_type == config('studentbox.user_type.admin'))
+                                    <a href="{{ url('/admin') }}" class="dropdown-item">Admin Dashboard</a>
                                     @else
                                         @if(count(\Illuminate\Support\Facades\Auth::user()->groups) > 0)
                                             <a href="{{ route('group.my') }}" class="dropdown-item">My Groups</a>

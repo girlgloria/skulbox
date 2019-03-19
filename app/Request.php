@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Repository\Contracts\BaseModel;
 
-class Request extends Model
+class Request extends BaseModel
 {
     protected $fillable = [
         'user_id',
@@ -16,7 +16,8 @@ class Request extends Model
         'completed_at',
         'due_date',
         'start_date',
-        'cancelled_at'
+        'cancelled_at',
+        'is_deleted'
     ];
 
     public function content()

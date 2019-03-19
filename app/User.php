@@ -28,6 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_deleted', false);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

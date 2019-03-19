@@ -96,7 +96,7 @@
 									</ul>
 								</div>
 							</li>
-						@endif
+						
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#requests">
 								<i class="fa fa-envelope"></i>
@@ -159,6 +159,7 @@
 								</ul>
 							</div>
 						</li>
+						@endif
 					</ul>
 				</div>
 			</div>

@@ -67,7 +67,7 @@ class ContentController extends Controller
 
         $resource->categories()->attach($request->categories);
 
-        notify()->success("Resources uploaded successfully");
+        notify()->success("Resource uploaded successfully");
 
         if (Auth::user()->user_type == config('studentbox.user_type.normal')){
             return redirect('/');
@@ -119,7 +119,7 @@ class ContentController extends Controller
 
         $content->categories()->attach($request->categories);
 
-        notify()->success("Update successfully");
+        notify()->success("Resoure updated successfully");
 
         return redirect()->route('resource.index');
     }
@@ -295,7 +295,7 @@ class ContentController extends Controller
 
         notify()->success("Resource deleted successfully");
 
-        return back();
+        return redirect()->route('resource.index');
     }
 
     public function orderPayment(Request $request)
@@ -350,7 +350,7 @@ class ContentController extends Controller
             'description' => 'Payment for '. $content->title
         ]);
 
-        notify()->success("Request send successfully");
+        notify()->success("Request sent successfully");
 
         return redirect('/');
     }

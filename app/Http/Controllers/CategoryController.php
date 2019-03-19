@@ -55,14 +55,14 @@ class CategoryController extends Controller
             'description' => 'required',
         ],
             [
-                'name.unique' => 'The category already exist',
-                'name.required' => 'The category field is required'
+                'name.unique' => 'This category already exists',
+                'name.required' => 'Please fill out this field'
             ]
         );
 
         $this->controllerRepo->getModel($this->model)->create($request->all());
 
-        notify()->success("Added successfully");
+        notify()->success("Category added successfully");
 
         return redirect()->route('category.index');
     }
@@ -101,7 +101,7 @@ class CategoryController extends Controller
     {
         $this->controllerRepo->getModel($this->model)->update($contentCat, $request->all());
 
-        notify()->success("Updated successfully");
+        notify()->success("Category updated successfully");
 
         return redirect()->route('category.index');
     }
@@ -116,7 +116,7 @@ class CategoryController extends Controller
     {
         $this->controllerRepo->getModel($this->model)->delete($contentCat);
 
-        notify()->success("Deleted successfully");
+        notify()->success("Category deleted successfully");
 
         return back();
     }

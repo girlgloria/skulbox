@@ -20,4 +20,11 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
         Route::get('view/{cat_id}', [\App\Http\Controllers\ContentController::class,'view'])->name('admin.resource.show');
         Route::put('update/{cat_id}', [\App\Http\Controllers\ContentController::class,'update'])->name('admin.resource.update');
     });
+
+    Route::group(['prefix' => 'requests'], function (){
+        Route::get('/', [\App\Http\Controllers\RequestController::class,'creatorRequests'])
+            ->name('admin.creator.requests');
+        Route::get('/{request_id}/show', [\App\Http\Controllers\RequestController::class,'viewRequest'])
+            ->name('admin.creator.requests.show');
+    });
 });

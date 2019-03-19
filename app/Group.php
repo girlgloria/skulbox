@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Repository\Contracts\BaseModel;
 
-class Group extends Model
+class Group extends BaseModel
 {
     protected $fillable = [
         'name',
