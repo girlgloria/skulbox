@@ -59,10 +59,9 @@ class ContentController extends Controller
             'title' => 'required',
             'content_type' => 'required',
             'file' => 'required',
-            'type' => 'required',
+            // 'type' => 'required',
             'description' => 'required',
         ]);
-
         $resource = $this->controllerRepo->getModel($this->model)->create($this->prepareData($request));
 
         $resource->categories()->attach($request->categories);
@@ -72,7 +71,6 @@ class ContentController extends Controller
         if (Auth::user()->user_type == config('studentbox.user_type.normal')){
             return redirect('/');
         }
-
         return redirect()->route('resource.index');
 
     }
