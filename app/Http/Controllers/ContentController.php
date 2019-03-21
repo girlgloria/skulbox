@@ -11,6 +11,7 @@ use App\UserDownload;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Request as ResourceRequest;
 
 class ContentController extends Controller
 {
@@ -32,8 +33,11 @@ class ContentController extends Controller
      */
     public function index()
     {
+        $getRequestResources = ResourceRequest::all('content_id');
+
+    
         return view('creator.content.index')
-            ->withItems($this->controllerRepo->getModel($this->model)->all());
+            ->withItems(Content::whereNotIn('id', $getRequestResources->toArray())->get());
     }
 
     public function creatorResourcesIndex()

@@ -73,6 +73,32 @@
 									</ul>
 								</div>
 							</li>
+							<li class="nav-item">
+							<a data-toggle="collapse" href="#requests">
+								<i class="fa fa-envelope"></i>
+								<p>Requests</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="requests">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="{{ route('creator.requests') }}">
+											<span class="sub-item">Requests</span>
+										</a>
+									</li>
+									<li>
+										<a href="{{ route('creator.requests',['status' => config('studentbox.request-status.doing')]) }}">
+											<span class="sub-item">Active requests</span>
+										</a>
+									</li>
+									<li>
+										<a href="{{ route('creator.requests', ['status' => config('studentbox.request-status.completed')]) }}">
+											<span class="sub-item">Completed requests</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
 						@endif
 						@if(auth()->user()->user_type == config('studentbox.user_type.agent'))
 							<li class="nav-item">
