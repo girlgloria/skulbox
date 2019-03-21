@@ -95,7 +95,9 @@
                                         <a href="{{ route('orders.my') }}" class="dropdown-item">My Orders</a>
                                         <a href="{{ route('resources.my') }}" class="dropdown-item">My Resources</a>
                                         {{--<a href="{{ route('orders.my') }}" class="dropdown-item">My Statement</a>--}}
-                                        <a class="dropdown-item white-color" href="{{ route('logout') }}"
+                                        
+                                    @endif
+                                    <a class="dropdown-item white-color" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
@@ -103,7 +105,6 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
-                                    @endif
                                 </div>
                             </li>
                         @endguest
