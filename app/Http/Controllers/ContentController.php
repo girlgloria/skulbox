@@ -370,7 +370,7 @@ class ContentController extends Controller
             'status' => config('studentbox.report-status.reported')
         ]);
 
-        notify()->success("Report submitted successfully","Report","center");
+        notify()->success("Report submitted successfully");
 
         return back();
     }
