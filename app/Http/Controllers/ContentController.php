@@ -203,7 +203,7 @@ class ContentController extends Controller
             'content_id' => $content->id
         ]);
 
-        notify()->success("Payment submitted successfully");
+        notify()->success("Payment made successfully");
 
         return back();
     }
@@ -344,13 +344,13 @@ class ContentController extends Controller
             $mobileNumber = substr($mobileNumber, 1);
         }
 
-        $getFromSaf = (new TransactionController())->init([
-            'customer_name' => \auth()->user()->name,
-            'phone_number' => $mobileNumber,
-            'amount' => $content->cost,
-            'reference' => time(),
-            'description' => 'Payment for '. $content->title
-        ]);
+        // $getFromSaf = (new TransactionController())->init([
+        //     'customer_name' => \auth()->user()->name,
+        //     'phone_number' => $mobileNumber,
+        //     'amount' => $content->cost,
+        //     'reference' => time(),
+        //     'description' => 'Payment for '. $content->title
+        // ]);
 
         notify()->success("Request sent successfully");
 
