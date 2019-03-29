@@ -203,7 +203,7 @@ class ContentController extends Controller
             'content_id' => $content->id
         ]);
 
-        notify()->success("Payment made successfully");
+        notify()->success("Payment submitted successfully");
 
         return back();
     }

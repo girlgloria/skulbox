@@ -94,7 +94,7 @@
                                         @endif
                                         <a href="{{ route('orders.my') }}" class="dropdown-item">My Orders</a>
                                         <a href="{{ route('resources.my') }}" class="dropdown-item">My Resources</a>
-                                        {{--<a href="{{ route('orders.my') }}" class="dropdown-item">My Statement</a>--}}
+                                        {{--<a href="{{ route('orders.my') }}" class="dropdown-item">My Statements</a>--}}
                                         
                                     @endif
                                     <a class="dropdown-item white-color" href="{{ route('logout') }}"
