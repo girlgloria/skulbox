@@ -5,7 +5,7 @@
             <div class="section-title" style="margin-top: 35px;">
                 <h2 class="title">Awesome Creators</h2>
                 <p>
-                    Do What You Love Share And Get Paid For IT
+                    Share Content and Get Paid for it
                 </p>
                 {{--<div class="col-md-12 text-center">--}}
                     {{--<a href="{{ route('creator.register') }}" class="btn btn-success">Become A Creator</a>--}}
@@ -22,7 +22,7 @@
                                     <table class="table table">
                                         <tbody>
                                         <tr>
-                                            <td>Total Download</td>
+                                            <td>Total Downloads</td>
                                             <td>{{ $creator->contents()->sum('number_of_download')  }}</td>
                                         </tr>
                                         <tr>
