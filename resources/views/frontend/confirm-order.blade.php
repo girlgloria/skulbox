@@ -32,7 +32,7 @@
                                 <form action="{{ route('order.payment') }}" method="post">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="new_number" class="color-black">You change Mpesa Phone Number</label>
+                                        <label for="new_number" class="color-black">Change the Mpesa Phone Number</label>
                                         <input type="text" class="form-control" name="new_number" value="{{ \Illuminate\Support\Facades\Auth::user()->phone_no }}" id="new_number">
                                     </div>
                                     <input type="hidden" value="{{ json_encode($data) }}" name="data">
