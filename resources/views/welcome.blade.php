@@ -13,12 +13,7 @@
                 <div class="card-header text-center"><b>Explore</b></div>
                 <div class="card-body">
                     <ul>
-                        <li>Find unlimited learning resources</li>
-                        <li>Manage your content</li>
-                        <li>Share content</li>
-                        <li>Request resources</li>
-                        <li>Upload files</li>
-                        <li>Create learning group</li>
+                        
                     </ul>
                 </div>
                 <div class="card-footer">
