@@ -31,12 +31,7 @@
                 <div class="card-header text-center"><b>Share And Earn</b></div>
                 <div class="card-body">
                     <ul>
-                        <li>Upload unlimited resources</li>
-                        <li>Multiple free or priced resources</li>
-                        <li>Manage your content</li>
-                        <li>Issue requested files & Earn</li>
-                        <li>Statements & Withdrawals</li>
-                        <li>Upload large files</li>
+                        
                     </ul>
                 </div>
                 <div class="card-footer">
