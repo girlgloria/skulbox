@@ -63,7 +63,7 @@
 		<div class="container">
 			<div class="call-to-action-wrapper wow fadeInUp">
 				<div class="left-content">
-					<h2>Get your school work done</h2>
+					<h2>Share Resources</h2>
 					
 				</div>
 				<div class="right-content">
