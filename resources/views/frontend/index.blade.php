@@ -64,7 +64,7 @@
 			<div class="call-to-action-wrapper wow fadeInUp">
 				<div class="left-content">
 					<h2>Get your school work done</h2>
-					<p>Order for school content online and freelances and creators will complete your work in no time as you enjoy what you do</p>
+					
 				</div>
 				<div class="right-content">
 					<a href="{{ route('order.content') }}" class="sofin-btn btn-light">Order Content</a>
