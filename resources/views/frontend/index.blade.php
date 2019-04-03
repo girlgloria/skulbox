@@ -79,7 +79,7 @@
 					<div class="about-soft-content wow fadeInUp">
 						<h2 class="title" id="about">About SkulBox</h2>
 						<p>
-							A platform to share learning resources by making requests, paying for them and downloading.
+							A platform to share learning resources where users can make requests and charge for their content.
 						</p>
 					</div>
 				</div>
