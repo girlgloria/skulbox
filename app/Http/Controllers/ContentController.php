@@ -147,7 +147,8 @@ class ContentController extends Controller
 
     public function show(Content $content)
     {
-        $canDownload = count(UserDownload::where('user_id', \auth()->user()->id)->where('content_id', $content->id)->get()) > 0 ? true : false;
+        $canDownload = count(UserDownload::where('user_id', \auth()->user()->id)->where('content_id',
+            $content->id)->get()) > 0 ? true : false;
         return view('frontend.single-content')
             ->withCanDownload($canDownload)
             ->withContent($content);
@@ -249,7 +250,8 @@ class ContentController extends Controller
     public function creators()
     {
         return view('frontend.creators')
-            ->withCreators($this->controllerRepo->getModel(User::class)->findBy('user_type', config('studentbox.user_type.agent')));
+            ->withCreators($this->controllerRepo->getModel(User::class)->findBy('user_type',
+                config('studentbox.user_type.agent')));
     }
 
     public function myResources(Request $request)

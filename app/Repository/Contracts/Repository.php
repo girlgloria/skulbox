@@ -13,7 +13,7 @@ abstract class Repository implements BaseRepository
     protected $model;
     public $controllerModel;
 
-    public function create($data)
+    public function     create($data)
     {
         return $this->model->create($data);
     }

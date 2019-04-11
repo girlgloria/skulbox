@@ -19,7 +19,7 @@
 						<div class="sofin-select">
 							<div class="form-group">
 								<label for="category" style="color: black">Choose Categories</label>
-								<select name="category" id="category" class="form-control">
+								<select name="category" id="category" required class="form-control">
 									<option value="">Choose Category</option>
 									@foreach(\App\Category::where('is_deleted', false)->get() as $cat)
 										<option value="{{ $cat->id }}">{{ ucwords($cat->name) }}</option>
@@ -32,7 +32,7 @@
 						<div class="sofin-select">
 							<div class="form-group">
 								<label for="price" style="color: black">Price</label>
-								<select name="price" id="price" class="form-control">
+								<select name="price" id="price" required class="form-control">
 									<option value="">Price</option>
 									<option value="free">Free</option>
 									<option value="paid">Paid</option>
