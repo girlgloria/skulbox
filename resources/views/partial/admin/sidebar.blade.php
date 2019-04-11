@@ -186,6 +186,14 @@
 							</div>
 						</li>
 						@endif
+						@if(auth()->user()->user_type == config('studentbox.user_type.admin'))
+							<li class="nav-item">
+								<a href="{{ route('admin.reports') }}" >
+									<i class="fas fa-exclamation"></i>
+									<p>Reports</p>
+								</a>
+							</li>
+						@endif
 					</ul>
 				</div>
 			</div>

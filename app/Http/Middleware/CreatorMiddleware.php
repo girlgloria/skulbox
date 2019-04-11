@@ -16,6 +16,10 @@ class CreatorMiddleware
      */
     public function handle($request, Closure $next)
     {
+//        dd(Auth::check());
+        if (!Auth::check()){
+            return redirect('/login');
+        }
         if (!$request->user()->user_type ==  config('studentbox.user_type.agent')){
 
             notify()->error("You don't have permission to enter this location","Permission denied");

@@ -16,6 +16,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id')->index();
             $table->bigInteger('user_id')->index()->unsigned();
+            $table->bigInteger('paid_to')->index()->unsigned();
             $table->string('customer_name')->nullable();
             $table->string('merchant_request_id')->nullable();
             $table->string('checkout_request_id')->nullable();

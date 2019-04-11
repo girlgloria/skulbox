@@ -13,4 +13,13 @@ class Report extends Model
         'content_id',
         'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function content()
+    {
+        return $this->belongsTo(Content::class);
+    }
 }

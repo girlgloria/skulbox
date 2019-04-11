@@ -87,11 +87,11 @@
                                     @elseif(auth()->user()->user_type == config('studentbox.user_type.admin'))
                                     <a href="{{ url('/admin') }}" class="dropdown-item">Admin Dashboard</a>
                                     @else
-                                        @if(count(\Illuminate\Support\Facades\Auth::user()->groups) > 0)
-                                            <a href="{{ route('group.my') }}" class="dropdown-item">My Groups</a>
-                                        @else
-                                            <a href="{{ route('group.create') }}" class="dropdown-item">Create Group</a>
-                                        @endif
+                                        {{--@if(count(\Illuminate\Support\Facades\Auth::user()->groups) > 0)--}}
+                                            {{--<a href="{{ route('group.my') }}" class="dropdown-item">My Groups</a>--}}
+                                        {{--@else--}}
+                                            {{--<a href="{{ route('group.create') }}" class="dropdown-item">Create Group</a>--}}
+                                        {{--@endif--}}
                                         <a href="{{ route('orders.my') }}" class="dropdown-item">My Orders</a>
                                         <a href="{{ route('resources.my') }}" class="dropdown-item">My Resources</a>
                                         {{--<a href="{{ route('orders.my') }}" class="dropdown-item">My Statements</a>--}}

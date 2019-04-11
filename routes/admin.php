@@ -2,6 +2,7 @@
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     Route::get('/', [\App\Http\Controllers\DashboardController::class,'index'])->name('admin.index');
+    Route::get('/reports', [\App\Http\Controllers\DashboardController::class,'reports'])->name('admin.reports');
     Route::group(['prefix' => 'categories'], function (){
         Route::get('/', [\App\Http\Controllers\CategoryController::class,'index'])->name('category.index');
         Route::get('create', [\App\Http\Controllers\CategoryController::class,'create'])->name('category.create');

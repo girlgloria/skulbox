@@ -13,7 +13,7 @@ class TransactionController extends Controller
         $client = new Client();
 
         try{
-            $response = $client->request('POST','https://upesa.co.ke/lipa254/api/v1/transact',[
+            $response = $client->request('POST','https://lipa.shulepay.co.ke/lipa254/api/v1/transact',[
                 'form_params' => $data
             ]);
 

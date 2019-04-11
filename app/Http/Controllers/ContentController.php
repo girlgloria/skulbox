@@ -35,7 +35,6 @@ class ContentController extends Controller
     {
         $getRequestResources = ResourceRequest::all('content_id');
 
-    
         return view('creator.content.index')
             ->withItems(Content::whereNotIn('id', $getRequestResources->toArray())->get());
     }

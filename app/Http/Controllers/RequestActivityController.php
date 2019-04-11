@@ -1,4 +1,4 @@
-omething Coming Soon<?php
+<?php
 
 namespace App\Http\Controllers;
 
